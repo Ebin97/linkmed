@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "436771327309",
+    "project_id": "linkmed-811f7",
+    "storage_bucket": "linkmed-811f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436771327309:android:ea7234aa493c6c612e7b04",
+        "android_client_info": {
+          "package_name": "com.medcon.medlink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436771327309-0nkeb9kgc41gd9mn8a7m7ievomjoptnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0CsNvAynC2g0ryhs110qk2MCtRZqPbw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436771327309-0nkeb9kgc41gd9mn8a7m7ievomjoptnf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
