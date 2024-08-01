@@ -181,6 +181,7 @@ export default function EventDetails(props) {
 
     useEffect(() => {
         setEventID(props.route.params.event);
+        Colors = props.route.params.colors
         init();
 
 
@@ -520,7 +521,7 @@ const styles = StyleSheet.create({
         width: width * .7,
         paddingHorizontal: 15,
         marginVertical: 10,
-        color: Colors.grey_color,
+        color: Colors.main_color,
         fontFamily: "OpenSans-BoldItalic",
         textDecorationLine: 'underline',
         textTransform: 'uppercase',

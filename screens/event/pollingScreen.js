@@ -33,6 +33,7 @@ export default function PollingScreen(props) {
     }
     useEffect(() => {
         setEvent(props.route.params.event);
+        Colors = props.route.params.colors
         init();
     }, [event]);
     useEffect(() => {
@@ -55,7 +56,8 @@ export default function PollingScreen(props) {
     }, [])
     return (
         <Layout back={true}
-
+        headerColor={Colors.main_color}
+        secondColor={Colors.main_color}
             onRefresh={init}
             naviagationAction={
                 () => {

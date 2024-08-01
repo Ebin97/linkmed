@@ -17,64 +17,7 @@ function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading }) 
 
     const [addToCalendar, setAddToCalendar] = useState(false);
     const [show, setShow] = useState(false);
-    const updateRSVP = async (status) => {
-        setRsvp(status);
-        let data = {
-            rsvp_status: status
-        };
-        isRSVPLoading(true);
-
-        let res = await GeneralApiData.UpdateRSVP(event.id, data);
-        if (res && res.status_code == 200) {
-            isRSVPLoading(false);
-            Toast.show({
-                type: "success",
-                text1: "Info",
-                text2: "Thank you for your confirmation."
-            })
-            bottomRef.current.close();
-            // setAddToCalendar(false)
-
-            // if (status == 1) {
-            //     checkCalendarPermission();
-
-            // } else {
-
-            //     removeEventReminder();
-            // }
-        } else {
-            isRSVPLoading(false);
-            Toast.show({
-                type: "error",
-                text1: "Warning",
-                text2: "Something wrong, Please try again"
-            })
-        }
-    }
-
-
-
-    const removeEventReminder = async () => {
-
-        await DBConnect.checkRSVP(event.id)
-        let savedId = await LocalStorage.getData('rsvp');
-        let id = savedId ? savedId?.rsvp_id : null
-        if (id) {
-            RNCalendarEvents.removeEvent(id, {
-            }).then((fullfilled, rejected) => {
-                const removeFromStorage = async () => {
-                    await DBConnect.deleteRSVP(event.id)
-                }
-                removeFromStorage();
-            }).catch((error) => {
-                console.log("------------------------");
-                console.log("RSVP Id");
-                console.log(id);
-                console.log("rejected");
-                console.log("------------------------");
-            });
-        }
-    }
+    teRSVP(event.id) 
 
     const checkCalendarPermission = async () => {
         RNCalendarEvents.checkPermissions((readOnly = false)).then(async (fullfilled, rejected) => {

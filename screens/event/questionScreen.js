@@ -6,6 +6,7 @@ import { Color, Dark } from '../../config/global';
 import Toast from 'react-native-toast-message';
 
 import GeneralApiData from '../../Data/GeneralApiData';
+import { color } from 'react-native-reanimated';
 const colorScheme = Appearance.getColorScheme();
 let Colors = Color;
 
@@ -69,6 +70,7 @@ export default function SendingQuestionScreen(props) {
     }
     useEffect(() => {
         setEvent(props.route.params.event);
+        Colors = props.route.params.colors
         init();
     }, [event]);
     useEffect(() => {
@@ -92,6 +94,9 @@ export default function SendingQuestionScreen(props) {
     return (
         <>
             <Layout back={true}
+            headerColor={Colors.main_color}
+            secondColor={Colors.main_color}
+            // color={Colors.main_color}
                 onRefresh={init}
                 refreshing={loading}
                 naviagationAction={
@@ -101,15 +106,15 @@ export default function SendingQuestionScreen(props) {
                 }
             >
                 <View style={styles.center}>
-                    <Text style={styles.questionTitle}>Sending Questions</Text>
+                    <Text style={{...styles.questionTitle,color:Colors.main_color}}>Sending Questions</Text>
                 </View>
-                <View style={styles.question}>
+                <View style={{...styles.question,color:Colors.main_color}}>
                     {alert.message ? <>
-                        <View><Text style={{ ...styles.error, color: alert.color }}>{alert.message}</Text></View>
+                        <View><Text style={{ ...styles.error, color: Colors.main_color }}>{alert.message}</Text></View>
                     </> : <></>}
                     <View style={styles.textbox}>
                         <TextInput
-                            style={styles.input}
+                            style={{...styles.input,borderColor:Colors.main_color}}
                             multiline={true}
                             numberOfLines={8}
 
@@ -123,7 +128,7 @@ export default function SendingQuestionScreen(props) {
                         {submitLoading ? (<>
                             <ActivityIndicator />
                         </>) : (<>
-                            <TouchableOpacity style={{ ...styles.button, ...styles.center }} onPress={() => { submit() }} activeOpacity={.9}>
+                            <TouchableOpacity style={{ ...styles.button, ...styles.center,backgroundColor:Colors.main_color }} onPress={() => { submit() }} activeOpacity={.9}>
                                 <Text style={styles.white}>Send</Text>
                             </TouchableOpacity>
                         </>)}
