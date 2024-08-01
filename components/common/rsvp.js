@@ -12,12 +12,12 @@ import Toast from 'react-native-toast-message';
 import DBConnect from '../../storage/DBConnect';
 import LocalStorage from '../../storage/LocalStorage';
 import WellDone from './welldone';
-function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading }) {
+function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading,color_}) {
 
 
     const [addToCalendar, setAddToCalendar] = useState(false);
     const [show, setShow] = useState(false);
-    teRSVP(event.id) 
+    // RSVP(event.id) 
 
     const checkCalendarPermission = async () => {
         RNCalendarEvents.checkPermissions((readOnly = false)).then(async (fullfilled, rejected) => {
@@ -112,16 +112,16 @@ function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading }) 
                         <ActivityIndicator />
                     </>) : (<>
                         <View style={styles.actions}>
-                            <TouchableOpacity style={rsvp != 1 ? { ...styles.option, borderColor: Colors.main_color } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
+                            <TouchableOpacity style={rsvp != 1 ? { ...styles.option, borderColor: color_ } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
                                 if (rsvp != 1) {
                                     updateRSVP(1);
                                 } else {
                                     //setAddToCalendar(true);
                                 }
                             }}>
-                                <Text style={rsvp != 1 ? { ...styles.rsvpTitle, color: Colors.main_color } : styles.rsvpTitleColored}>Attending</Text>
+                                <Text style={rsvp != 1 ? { ...styles.rsvpTitle, color: color_ } : styles.rsvpTitleColored}>Attending</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={rsvp != 0 ? { ...styles.option, borderColor: Colors.main_color } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
+                            <TouchableOpacity style={rsvp != 0 ? { ...styles.option, borderColor: color_ } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
                                 if (rsvp != 0) {
                                     updateRSVP(0);
                                 } else {
@@ -129,9 +129,9 @@ function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading }) 
                                     // removeEventReminder();
                                 }
                             }}>
-                                <Text style={rsvp != 0 ? { ...styles.rsvpTitle, color: Colors.main_color } : styles.rsvpTitleColored}>Not Attending</Text>
+                                <Text style={rsvp != 0 ? { ...styles.rsvpTitle, color: color_ } : styles.rsvpTitleColored}>Not Attending</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={rsvp != 2 ? { ...styles.option, borderColor: Colors.main_color } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
+                            <TouchableOpacity style={rsvp != 2 ? { ...styles.option, borderColor: color_ } : { ...styles.selected, backgroundColor: Colors.main_color, borderColor: Colors.main_color }} onPress={() => {
                                 if (rsvp != 2) {
                                     updateRSVP(2);
                                 } else {
@@ -140,7 +140,7 @@ function RSVP({ event, bottomRef, setRsvp, rsvp, isRSVPLoading, rsvp_loading }) 
 
                                 }
                             }}>
-                                <Text style={rsvp != 2 ? { ...styles.rsvpTitle, color: Colors.main_color } : styles.rsvpTitleColored}>Not Sure</Text>
+                                <Text style={rsvp != 2 ? { ...styles.rsvpTitle, color:color_ } : styles.rsvpTitleColored}>Not Sure</Text>
                             </TouchableOpacity>
                         </View>
                     </>)}

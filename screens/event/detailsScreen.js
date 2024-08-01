@@ -30,6 +30,10 @@ export default function EventDetails(props) {
     const bottomRef = useRef();
 
     const checkRSVP = async () => {
+        // bottomRef.color_ = Colors.red 
+        // RSVP.arguments.color_=Colors.red
+        // bottomRef.current.color
+
         bottomRef.current.show()
     }
 
@@ -235,7 +239,7 @@ export default function EventDetails(props) {
                     }
                 >
 
-                    <RSVP setRsvp={setRsvp} event={event} rsvp={rsvp} bottomRef={bottomRef} isRSVPLoading={isRSVPLoading} rsvp_loading={rsvp_loading} />
+                    <RSVP setRsvp={setRsvp} event={event} rsvp={rsvp} bottomRef={bottomRef} isRSVPLoading={isRSVPLoading} rsvp_loading={rsvp_loading} color_={Colors.main_color} />
 
                     {event ? (<>
                         <LinearGradient start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} colors={[Colors.white, Colors.white]}>
